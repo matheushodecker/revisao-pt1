@@ -19,10 +19,10 @@ function formatarPreco(preco) {
 <template>
   <h1>{{ titulo }}</h1>
   <div class="container">
-    <div class="formularios">
+    <div v-if="!mostrarResultado" class="formularios">
       <h2>formularios</h2>
       <input type="text" v-model="titulo">
-      <form @submit.prevent="mostrarResultado = !mostrarResultado">
+      <form @submit="mostrarResultado = !mostrarResultado">
         <div class="row">
           <label for="">nome</label>
           <input type="text" v-model="produto.nome">
@@ -40,7 +40,7 @@ function formatarPreco(preco) {
     </div>
 
 
-    <div v-if="mostrarResultado" class="resultado">
+    <div v-else class="resultado">
       <h2>resultados</h2>
 
       <p>nome: {{ produto.nome }}</p>
@@ -48,6 +48,7 @@ function formatarPreco(preco) {
       <P>quantidade: {{ produto.quantidade }}</P>
       <p>categoria: {{ produto.categoria }}</p>
       <p>{{ mostrarResultado }}</p>
+      <button type="submit">mostrar</button>
     </div>
   </div>
 </template>
