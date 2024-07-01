@@ -5,15 +5,20 @@ const titulo = ref('Titulo')
 const mostrarResultado = ref(false)
 
 const produto = reactive({
-  nome: 'produto1',
-  preco: 19.99,
-  quantidade: 10,
-  categorias: []
+  nome: 'nome',
+  email: 'email',
+  senha: 'senha',
+  Csenha: 'confirmacao senha',
+  DataNascimento: 'data nascimento',
+  endereco: 'endereco',
+  cidade: 'cidade'
 })
 
 function formatarPreco(preco) {
   return `R$ ${preco.toFixed(2).replace('.', ',')}`
 }
+
+
 </script>
 
 <template>
@@ -24,16 +29,71 @@ function formatarPreco(preco) {
       <input type="text" v-model="titulo">
       <form @submit="mostrarResultado = !mostrarResultado">
         <div class="row">
-          <label for="">nome</label>
-          <input type="text" v-model="produto.nome">
+         <label for="nome">nome</label>
+         <input type="text" v-model="produto.nome">
         </div>
         <div class="row">
-          <label for="">preco</label>
-          <input type="number" v-model="produto.preco">
+         <label for="email">email</label>
+         <input type="text" v-model="produto.email">
         </div>
         <div class="row">
-          <label for="">quantidade</label>
-          <input type="number" v-model="produto.quantidade">
+          <label for="senha">senha</label>
+          <input type="text" v-model="produto.senha">
+        </div>
+        <div class="row">
+          <label for="Csenha">confirmacao senha</label>
+          <input type="text" v-model="produto.Csenha">
+        </div>
+        <div class="row">
+          <label for="DataNascimento">data nascimento</label>
+          <input type="date" v-model="produto.DataNascimento">
+        </div>
+        <div class="row">
+          <label for="endereco">endereco</label>
+          <input type="text" v-model="produto.endereco">
+        </div>
+        <div class="row">
+          <label for="cidade">cidade</label>
+          <input type="text" v-model="produto.cidade">
+        </div>
+        <div class="row">
+          <label for="estado"></label>
+          <label for="usuario.estado.value">estado</label>
+      <br>
+      <select name="estado" class="estado">
+        <option value="AC">Acre</option>
+        <option value="AL">Alagoas</option>
+        <option value="AP">Amapá</option>
+        <option value="AM">Amazonas</option>
+        <option value="BA">Bahia</option>
+        <option value="CE">Ceará</option>
+        <option value="ES">Espírito Santo</option>
+        <option value="GO">Goiás</option>
+        <option value="MA">Maranhão</option>
+        <option value="MT">Mato Grosso</option>
+        <option value="AC">Mato Grosso do Sul</option>
+        <option value="AC">Minas Gerais</option>
+        <option value="AC">Pará</option>
+        <option value="AC">Paraíba</option>
+        <option value="AC">Paraná</option>
+        <option value="AC">Pernambuco</option>
+        <option value="AC">Piauí</option>
+        <option value="AC">PI</option>
+        <option value="AC">RJ</option>
+        <option value="AC">RN</option>
+        <option value="AC">RS</option>
+        <option value="AC">RO</option>
+        <option value="AC">RR</option>
+        <option value="AC">SC</option>
+        <option value="AC">SP</option>
+        <option value="AC">SE</option>
+        <option value="AC">TO</option>
+      </select>
+      <br>
+        </div>
+        <div class="row">
+          <label for="Csenha">confirmacao senha</label>
+          <input type="text" v-model="produto.Csenha">
         </div>
         <button type="submit">mostrar</button>
       </form>
@@ -44,11 +104,11 @@ function formatarPreco(preco) {
       <h2>resultados</h2>
 
       <p>nome: {{ produto.nome }}</p>
-      <p>preco: {{ formatarPreco(produto.preco) }}</p>
-      <P>quantidade: {{ produto.quantidade }}</P>
-      <p>categoria: {{ produto.categoria }}</p>
+      <p>email: {{ produto.email }}</p>
+      <P>senha: {{ produto.senha }}</P>
+      <p>Csenha: {{ produto.Csenha }}</p>
       <p>{{ mostrarResultado }}</p>
-      <button type="submit">mostrar</button>
+      <button @click="mostrarResultado = false">mostrar</button>
     </div>
   </div>
 </template>
