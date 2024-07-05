@@ -1,7 +1,6 @@
 <script setup>
 import { reactive, ref } from 'vue'
 
-const titulo = ref('Titulo')
 const mostrarResultado = ref(false)
 
 const produto = reactive({
@@ -21,11 +20,10 @@ const produto = reactive({
 </script>
 
 <template>
-  <h1>{{ titulo }}</h1>
   <div class="container">
     <div v-if="!mostrarResultado" class="formularios">
-      <h2>formularios</h2>
-      <input type="text" v-model="titulo">
+      <h1>formularios</h1>
+      
       <form @submit="mostrarResultado = !mostrarResultado">
         <div class="row">
           <label for="nome">nome</label>
@@ -125,19 +123,23 @@ const produto = reactive({
 </template>
 
 <style scoped>
+template{
+  background-color: black;
+}
 .container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 1.5rem;
   width: 100vw;
+  padding: 25vh 5vh;
 }
 
 .formularios,
 .resultado {
   width: 45%;
   border-radius: 10px;
-  padding: 10px;
+  padding: 25px;
 }
 
 .formularios {
